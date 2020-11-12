@@ -2,6 +2,7 @@
   <div class="main">
     <div class="eheader">
       <Eheader title="新增相册"></Eheader>
+  
     </div>
   </div>
 </template>

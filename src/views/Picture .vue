@@ -36,7 +36,8 @@
       </el-dialog>
     </el-row>
     <div class="main1">
-      <el-table :data="tableData" border style="width: 100%">
+      <el-table :data="tableData" border style="width: 100%"
+       header-cell-style="background: rgba(242, 242, 242, 1);">
         <el-table-column prop="date" label="序号" width="180"></el-table-column>
         <el-table-column prop="name" label="编码" width="180"></el-table-column>
         <el-table-column prop="address" label="类别名称"></el-table-column>

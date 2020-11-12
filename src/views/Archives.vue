@@ -5,7 +5,7 @@
     </div>
     <div class="main1">
       <div>
-        <el-dropdown  trigger="click">
+        <el-dropdown trigger="click">
           <span class="el-dropdown-link">
             全部状态
             <i class="el-icon-arrow-down el-icon--right"></i>
@@ -17,18 +17,20 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-input placeholder="请输入商品名称/编码" v-model="input3" class="input-with-select">
-      <el-button
-        slot="append"
-        icon="el-icon-search"
-        type="primary"
-        @click="openFullScreen1"
-        v-loading.fullscreen.lock="fullscreenLoading"
-      ></el-button>
-    </el-input>
-     <el-row class="btn">
-      <el-button plain>导出</el-button>
-      <el-button type="primary" ><router-link to="/archivesadd" tag="div">新增</router-link></el-button>
-      </el-row>
+          <el-button
+            slot="append"
+            icon="el-icon-search"
+            type="primary"
+            @click="openFullScreen1"
+            v-loading.fullscreen.lock="fullscreenLoading"
+          ></el-button>
+        </el-input>
+        <el-row class="btn">
+          <el-button plain>导出</el-button>
+          <el-button type="primary">
+            <router-link to="/archivesadd" tag="div">新增</router-link>
+          </el-button>
+        </el-row>
       </div>
       <el-table
         ref="multipleTable"
@@ -36,6 +38,7 @@
         tooltip-effect="dark"
         style="width: 100%"
         @selection-change="handleSelectionChange"
+        header-cell-style="background: rgba(242, 242, 242, 1);"
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="编码" width="120"></el-table-column>
@@ -45,8 +48,19 @@
         <el-table-column prop="name" label="零售价" width="110"></el-table-column>
         <el-table-column prop="name" label="市场指导价" width="110"></el-table-column>
         <el-table-column prop="name" label="状态" width="100"></el-table-column>
-        <el-table-column prop="name" label="..." width="100">
-          <i class="el-icon-more"></i>
+        <el-table-column prop="name" label="..." width="100" >
+            <el-dropdown>
+              <span class="el-dropdown-link">
+                <i class="el-icon-more"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown" class="btn1">
+                <el-dropdown-item>黄金糕</el-dropdown-item>
+                <el-dropdown-item>狮子头</el-dropdown-item>
+                <el-dropdown-item>螺蛳粉</el-dropdown-item>
+                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+                <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
         </el-table-column>
       </el-table>
     </div>
@@ -71,8 +85,8 @@ export default {
   },
   data() {
     return {
-       fullscreenLoading: false,
-       input3:'',
+      fullscreenLoading: false,
+      input3: "",
       tableData: [
         {
           date: "2016-05-03",
@@ -109,6 +123,11 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄"
         },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        }
       ],
       multipleSelection: []
     };
@@ -132,7 +151,7 @@ export default {
     },
     handleSelectionChange(val) {
       this.multipleSelection = val;
-    },
+    }
   }
 };
 </script>
@@ -163,5 +182,8 @@ export default {
   position: absolute;
   bottom: 5px;
   margin-left: 249px;
+}
+.btn1{
+  z-index: 10;
 }
 </style>
