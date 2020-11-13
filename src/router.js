@@ -52,6 +52,23 @@ export default new Router({
           path: '/pictureadd',
           component:()=>import('./views/Pictureadd.vue'),
         },
+        {
+          path: '/archivesUp',
+          component:()=>import('./views/ArchivesUp.vue'),
+        },
+        {
+          path: '/pictureUp',
+          component:()=>import('./views/PictureUp.vue'),
+        },
+        {
+          path: '/pictureSees',
+          component:()=>import('./views/PictureSee.vue'),
+        },
+        {
+          path: '/supplier',
+          component:()=>import('./views/Supplier.vue'),
+        },
+        
       ]
     }
   ]

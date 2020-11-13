@@ -66,7 +66,7 @@
             </div>
           </div>
           <el-button type="primary" @click="denglu()">登录</el-button>
-          <router-link to="/main"> <el-link :underline="false" type="warning">免校验直接登录</el-link></router-link>
+          <router-link to="/main"> <el-link :underline="false" type="warning" class="xy">免校验直接登录</el-link></router-link>
          
           <p></p>
         </div>
@@ -176,16 +176,14 @@ computed: {
   width: 302px;
   background: repeating-linear-gradient(
     to right,
-    rgb(255, 136, 0),
-    rgb(255, 185, 0)
+    rgb(27, 30, 207)
   ) !important;
   border: 0;
 }
 .el-button:hover {
   background: repeating-linear-gradient(
     to right,
-    rgba(255, 136, 0, 0.7),
-    rgba(255, 185, 0, 0.7)
+    rgba(0, 225, 255, 0.7)
   ) !important;
 }
 .el-alert--error {
@@ -235,6 +233,9 @@ i {
 
 .el-col[data-v-10d9df09]{
   margin-top: 130px;
+}
+.xy{
+  color: blue;
 }
 </style>
 

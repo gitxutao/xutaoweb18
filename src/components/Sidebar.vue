@@ -32,7 +32,7 @@
               <span>采购</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1">• 供应商管理</el-menu-item>
+              <el-menu-item index="2-1"><router-link to="/supplier" tag="div">• 供应商管理</router-link></el-menu-item>
               <el-menu-item index="2-2">• 采购单</el-menu-item>
               <el-menu-item index="2-3">• 采购退货单</el-menu-item>
             </el-menu-item-group>

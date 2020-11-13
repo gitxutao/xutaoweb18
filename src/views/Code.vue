@@ -123,13 +123,14 @@ export default {
 .content1_5 {
   width: 200px;
   margin: -30px 170px;
-  z-index: 10;
 }
 .btn{
   position: absolute;
   top: 330px;
 }
 .content2 img{
-  margin: 60px 180px;
+  position: absolute;
+  right: 100px;
+  top: 70px;
 }
 </style>
