@@ -1,9 +1,33 @@
 <template>
   <div class="main">
     <div class="eheader">
-      <Eheader title="图片库管理"></Eheader>
+      <Eheader title="采购单"></Eheader>
     </div>
-    <el-input placeholder="请输入相册名称" v-model="input3" class="input-with-select">
+     <el-dropdown trigger="click" class="xlk">
+          <span class="el-dropdown-link">
+            审核状态
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>审核状态</el-dropdown-item>
+            <el-dropdown-item>待审核</el-dropdown-item>
+            <el-dropdown-item>审核失败</el-dropdown-item>
+            <el-dropdown-item>审核成功</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown trigger="click" class="xlk1">
+          <span class="el-dropdown-link">
+            入库状态
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>入库状态</el-dropdown-item>
+            <el-dropdown-item>已作废</el-dropdown-item>
+            <el-dropdown-item>待入库</el-dropdown-item>
+            <el-dropdown-item>部分入库</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+    <el-input placeholder="请输入采购单号" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -13,7 +37,8 @@
       ></el-button>
     </el-input>
     <el-row class="btn">
-      <el-button type="primary"><router-link to="/pictureadd" tag="div">新增</router-link></el-button>
+          <el-button>导出</el-button>
+      <el-button type="primary"><router-link to="/purchaseadd" tag="div">新增</router-link></el-button>
       <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="上级类别" :label-width="formLabelWidth">
@@ -38,16 +63,18 @@
     <div class="main1">
       <el-table :data="tableData" border style="width: 100%"
        header-cell-style="background: rgba(242, 242, 242, 1);">
-        <el-table-column prop="date" label="编码" width="100"></el-table-column>
-        <el-table-column prop="name" label="相册名称" width="180"></el-table-column>
-        <el-table-column prop="address" label="图片数量"></el-table-column>
-        <el-table-column prop="data1" label="描述" width="170"></el-table-column>
-        <el-table-column prop="data2" label="排序"></el-table-column>
-        <el-table-column prop="data3" label="创建时间" width="180"></el-table-column>
+        <el-table-column prop="date" label="采购单号" width="150"></el-table-column>
+        <el-table-column prop="name" label="供应商" width="130"></el-table-column>
+        <el-table-column prop="address" label="采购金额"></el-table-column>
+        <el-table-column prop="data1" label="采购人员"></el-table-column>
+        <el-table-column prop="data2" label="制单人员"></el-table-column>
+        <el-table-column prop="data3" label="制单日期" width="110"></el-table-column>
+        <el-table-column prop="data4" label="审核状态"></el-table-column>
+        <el-table-column prop="data5" label="入库状态"></el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
           <template3>
-            <el-button type="text" size="small"><router-link to="/pictureUp" tag="div">修改</router-link></el-button>
-            <el-button type="text" size="small"><router-link to="/pictureSees" tag="div">详情</router-link></el-button>
+            <el-button type="text" size="small"><router-link to="/purchaseUp" tag="div">修改</router-link></el-button>
+            <el-button type="text" size="small"><router-link to="/purchaseSee" tag="div">查看</router-link></el-button>
             <el-button type="text" size="small" @click="open1">删除</el-button>
           </template3>
         </el-table-column>
@@ -91,60 +118,74 @@ export default {
         formLabelWidth: '120px',
       tableData: [
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-         date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'...',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'已作废'
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'八月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'部分入库'
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'....',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-         date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         }
       ]
     };
@@ -206,7 +247,7 @@ export default {
 .input-with-select {
   width: 270px;
   height: 20px;
-  margin: 10px 50px;
+  margin: 10px 26px;
 }
 .btn {
   float: right;
@@ -216,5 +257,11 @@ export default {
   position: absolute;
   bottom: 5px;
   margin-left: 249px;
+}
+.xlk{
+    margin: 0px 50px;
+}
+.xlk1{
+    margin: 0px -20px;
 }
 </style>

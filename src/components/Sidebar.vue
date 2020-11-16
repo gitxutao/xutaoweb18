@@ -33,8 +33,8 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="2-1"><router-link to="/supplier" tag="div">• 供应商管理</router-link></el-menu-item>
-              <el-menu-item index="2-2">• 采购单</el-menu-item>
-              <el-menu-item index="2-3">• 采购退货单</el-menu-item>
+              <el-menu-item index="2-2"><router-link to="/purchase" tag="div">• 采购单</router-link></el-menu-item>
+              <el-menu-item index="2-3"><router-link to="/cgthd" tag="div">• 采购退货单</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="3" class="el-submenu__title1">
@@ -43,12 +43,12 @@
               <span>库存</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="3-1">• 商品入库</el-menu-item>
-              <el-menu-item index="3-2">• 库存调拔</el-menu-item>
-              <el-menu-item index="3-3">• 商品出库</el-menu-item>
-              <el-menu-item index="3-4">• 库存盘点</el-menu-item>
-              <el-menu-item index="3-5">• 商品库存</el-menu-item>
-              <el-menu-item index="3-6">• 商品库存明细</el-menu-item>
+              <el-menu-item index="3-1"><router-link to="/sprk" tag="div">• 商品入库</router-link></el-menu-item>
+              <el-menu-item index="3-2"><router-link to="/kctb" tag="div">• 库存调拔</router-link></el-menu-item>
+              <el-menu-item index="3-3"><router-link to="/spck" tag="div">• 商品出库</router-link></el-menu-item>
+              <el-menu-item index="3-4"><router-link to="/kcpd" tag="div">• 库存盘点</router-link></el-menu-item>
+              <el-menu-item index="3-5"><router-link to="/spkc" tag="div">• 商品库存</router-link></el-menu-item>
+              <el-menu-item index="3-6"><router-link to="/spkcmx" tag="div">• 商品库存明细</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="4" class="el-submenu__title1">
@@ -56,9 +56,9 @@
               <i class="el-icon-present"></i>
               <span>促销</span>
             </template>
-            <el-menu-item-group>
-              <el-menu-item index="4-1">• 订单促销</el-menu-item>
-              <el-menu-item index="4-2">• 商品促销</el-menu-item>
+            <el-menu-item-group> 
+              <el-menu-item index="4-1"><router-link to="/orderPromotion" tag="div">• 订单促销</router-link></el-menu-item>
+              <el-menu-item index="4-2"><router-link to="/spcx" tag="div">• 商品促销</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="5" class="el-submenu__title1">
@@ -67,14 +67,14 @@
               <span>零售</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="5-1">• 终端销售单</el-menu-item>
-              <el-menu-item index="5-2">• 终端退货单</el-menu-item>
-              <el-menu-item index="5-3">• 商城销售单</el-menu-item>
-              <el-menu-item index="5-4">• 终端销售交易明细</el-menu-item>
-              <el-menu-item index="5-5">• 终端财务收银明细</el-menu-item>
-              <el-menu-item index="5-6">• 终端销售交易汇总</el-menu-item>
-              <el-menu-item index="5-7">• 终端财务收银汇总</el-menu-item>
-              <el-menu-item index="5-8">• 终端财务退款汇总</el-menu-item>
+              <el-menu-item index="5-1"><router-link to="/zdxsd" tag="div">• 终端销售单</router-link></el-menu-item>
+              <el-menu-item index="5-2"><router-link to="/zdthd" tag="div">• 终端退货单</router-link></el-menu-item>
+              <el-menu-item index="5-3"><router-link to="/scxsd" tag="div">• 商城销售单</router-link></el-menu-item>
+              <el-menu-item index="5-4"><router-link to="/zdxsjymx" tag="div">• 终端销售交易明细</router-link></el-menu-item>
+              <el-menu-item index="5-5"><router-link to="/zdcwsymx" tag="div">• 终端财务收银明细</router-link></el-menu-item>
+              <el-menu-item index="5-6"><router-link to="/zdxsjyhz" tag="div">• 终端销售交易汇总</router-link></el-menu-item>
+              <el-menu-item index="5-7"><router-link to="/zdcwsthz" tag="div">• 终端财务收银汇总</router-link></el-menu-item>
+              <el-menu-item index="5-8"><router-link to="/zdcwtkhz" tag="div">• 终端财务退款汇总</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="6" class="el-submenu__title1">

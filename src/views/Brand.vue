@@ -3,7 +3,7 @@
     <div class="eheader">
       <Eheader title="商品品牌"></Eheader>
     </div>
-    <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+    <el-input placeholder="请输入品牌名/编码" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -39,11 +39,10 @@
     <div class="main1">
       <el-table :data="tableData" border style="width: 100%"
        header-cell-style="background: rgba(242, 242, 242, 1);">
-        <el-table-column prop="date" label="序号" width="180"></el-table-column>
-        <el-table-column prop="name" label="编码" width="180"></el-table-column>
-        <el-table-column prop="address" label="类别名称"></el-table-column>
-        <el-table-column prop="address" label="排序"></el-table-column>
-        <el-table-column fixed="right" label="操作" width="150">
+        <el-table-column prop="date" label="序号" width="100"></el-table-column>
+        <el-table-column prop="name" label="编码" width="257"></el-table-column>
+        <el-table-column prop="address" label="品牌名称" width="257"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="200">
           <template3>
             <el-button @click="dialogFormVisible = true" type="text" size="small">修改</el-button>
             <el-button type="text" size="small" @click="open1">删除</el-button>
@@ -89,39 +88,39 @@ export default {
         formLabelWidth: '120px',
       tableData: [
         {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          date: "1",
+          name: "000000",
+          address: "无品牌"
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
+          date: "2",
+          name: "000001",
+          address: "中华香烟"
         },
         {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
+          date: "3",
+          name: "000002",
+          address: "徐福记"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "4",
+          name: "000003",
+          address: "德芙"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "5",
+          name: "000004",
+          address: "娃哈哈"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "6",
+          name: "000005",
+          address: "欧莱雅"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "7",
+          name: "000006",
+          address: "维达"
         }
       ]
     };

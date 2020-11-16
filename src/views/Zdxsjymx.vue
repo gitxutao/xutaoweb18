@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="eheader">
-      <Eheader title="图片库管理"></Eheader>
+      <Eheader title="终端销售交易明细"></Eheader>
     </div>
-    <el-input placeholder="请输入相册名称" v-model="input3" class="input-with-select">
+    <el-input placeholder="请输入商品名/编码" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -13,7 +13,7 @@
       ></el-button>
     </el-input>
     <el-row class="btn">
-      <el-button type="primary"><router-link to="/pictureadd" tag="div">新增</router-link></el-button>
+      <el-button>导出</el-button>
       <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="上级类别" :label-width="formLabelWidth">
@@ -36,19 +36,25 @@
       </el-dialog>
     </el-row>
     <div class="main1">
-      <el-table :data="tableData" border style="width: 100%"
-       header-cell-style="background: rgba(242, 242, 242, 1);">
-        <el-table-column prop="date" label="编码" width="100"></el-table-column>
-        <el-table-column prop="name" label="相册名称" width="180"></el-table-column>
-        <el-table-column prop="address" label="图片数量"></el-table-column>
-        <el-table-column prop="data1" label="描述" width="170"></el-table-column>
-        <el-table-column prop="data2" label="排序"></el-table-column>
-        <el-table-column prop="data3" label="创建时间" width="180"></el-table-column>
-        <el-table-column fixed="right" label="操作" width="150">
+      <el-table
+        :data="tableData"
+        border
+        style="width: 100%"
+        header-cell-style="background: rgba(242, 242, 242, 1);"
+      >
+        <el-table-column prop="date" label="商品名称" width="150"></el-table-column>
+        <el-table-column prop="name" label="交易类型" width="90"></el-table-column>
+        <el-table-column prop="address" label="业务单号" width="159"></el-table-column>
+        <el-table-column prop="data1" label="数量" width="79"></el-table-column>
+        <el-table-column prop="data2" label="常规销售价" width="147"></el-table-column>
+        <el-table-column prop="data3" label="用户购买价" width="119"></el-table-column>
+        <el-table-column prop="data4" label="改价促销" width="79"></el-table-column>
+        <el-table-column prop="data5" label="收银人员" width="77"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="49">
           <template3>
-            <el-button type="text" size="small"><router-link to="/pictureUp" tag="div">修改</router-link></el-button>
-            <el-button type="text" size="small"><router-link to="/pictureSees" tag="div">详情</router-link></el-button>
-            <el-button type="text" size="small" @click="open1">删除</el-button>
+            <el-button type="text" size="small">
+              <router-link to="/spckUp" tag="div">---</router-link>
+            </el-button>
           </template3>
         </el-table-column>
       </el-table>
@@ -75,76 +81,90 @@ export default {
   data() {
     return {
       dialogTableVisible: false,
-        dialogFormVisible: false,
-        fullscreenLoading: false,
-        input3:'',
-        form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '120px',
+      dialogFormVisible: false,
+      fullscreenLoading: false,
+      input3: "",
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      },
+      formLabelWidth: "120px",
       tableData: [
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "----",
+          data5: "syds"
         },
         {
-         date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "----",
+          data5: "syds"
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "改价",
+          data5: "syds"
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "促销",
+          data5: "syds"
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "----",
+          data5: "syds"
         },
         {
-          date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+          date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "改价",
+          data5: "syds"
         },
         {
-         date: "1000001",
-          name: "家居家纺图片",
-          address: "100",
-          data1:'暂无相册描述信息',
-          data2:'100',
-          data3:'2018-04-08'
+           date: "商品名称",
+          name: "销售",
+          address: "ZDXS2018042801",
+          data1: "2",
+          data2: "20.00",
+          data3: "20.00",
+          data4: "----",
+          data5: "syds"
         }
       ]
     };
@@ -161,12 +181,12 @@ export default {
         confirmButtonText: "确定"
       });
     },
-     open2() {
-        this.$message({
-          message: '恭喜你，这是一条成功消息',
-          type: 'success'
-        });
-      },
+    open2() {
+      this.$message({
+        message: "恭喜你，这是一条成功消息",
+        type: "success"
+      });
+    },
     open1() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -216,5 +236,11 @@ export default {
   position: absolute;
   bottom: 5px;
   margin-left: 249px;
+}
+.xlk {
+  margin: 0px 50px;
+}
+.xlk1 {
+  margin: 0px -20px;
 }
 </style>

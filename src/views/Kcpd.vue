@@ -1,9 +1,21 @@
 <template>
   <div class="main">
     <div class="eheader">
-      <Eheader title="商品类别"></Eheader>
+      <Eheader title="库存盘点"></Eheader>
     </div>
-    <el-input placeholder="请输入类别名/编码" v-model="input3" class="input-with-select">
+     <el-dropdown trigger="click" class="xlk">
+          <span class="el-dropdown-link">
+            审核状态
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>审核状态</el-dropdown-item>
+            <el-dropdown-item>待审核</el-dropdown-item>
+            <el-dropdown-item>审核失败</el-dropdown-item>
+            <el-dropdown-item>审核成功</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+    <el-input placeholder="请输入采购单号" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -13,11 +25,11 @@
       ></el-button>
     </el-input>
     <el-row class="btn">
-      <el-button>导出</el-button>
-      <el-button type="primary" @click="dialogFormVisible = true">新增</el-button>
+          <el-button>导出</el-button>
+      <el-button type="primary"><router-link to="/kctdadd" tag="div">新增</router-link></el-button>
       <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
         <el-form :model="form">
-          <el-form-item label="上级类别" :label-width="formLabelWidth" >
+          <el-form-item label="上级类别" :label-width="formLabelWidth">
             <el-input v-model="form.name" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="编码" :label-width="formLabelWidth">
@@ -37,17 +49,20 @@
       </el-dialog>
     </el-row>
     <div class="main1">
-      <el-table :data="tableData"
-       border style="width: 100%"
-      header-cell-style="background: rgba(242, 242, 242, 1);"
-      >
-        <el-table-column prop="date" label="序号" width="100"></el-table-column>
-        <el-table-column prop="name" label="编码" width="180"></el-table-column>
-        <el-table-column prop="address" label="类别名称"></el-table-column>
-        <el-table-column prop="px" label="排序"></el-table-column>
-        <el-table-column fixed="right" label="操作" width="150">
+      <el-table :data="tableData" border style="width: 100%"
+       header-cell-style="background: rgba(242, 242, 242, 1);">
+        <el-table-column prop="date" label="调拔单号" width="150"></el-table-column>
+        <el-table-column prop="name" label="调出门店" width="130"></el-table-column>
+        <el-table-column prop="address" label="零售价盘盈金额" width="90"></el-table-column>
+        <el-table-column prop="data1" label="零售价盘亏金额"></el-table-column>
+        <el-table-column prop="data2" label="经办人员" width="90"></el-table-column>
+        <el-table-column prop="data3" label="制单人员" width="100"></el-table-column>
+        <el-table-column prop="data4" label="制单日期"></el-table-column>
+        <el-table-column prop="data5" label="审核状态" width="100"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="120">
           <template3>
-            <el-button @click="dialogFormVisible = true" type="text" size="small">修改</el-button>
+            <el-button type="text" size="small"><router-link to="/kctbUp" tag="div">修改</router-link></el-button>
+            <el-button type="text" size="small"><router-link to="/kctbSee" tag="div">详情</router-link></el-button>
             <el-button type="text" size="small" @click="open1">删除</el-button>
           </template3>
         </el-table-column>
@@ -91,46 +106,65 @@ export default {
         formLabelWidth: '120px',
       tableData: [
         {
-          date: "1",
-          name: "00",
-          address: "未分类",
-          px:"1"
-        },
-       {
-          date: "2",
-          name: "01",
-          address: "烟酒糖茶",
-          px:"2"
+          date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-          date: "3",
-          name: "02",
-          address: "烟",
-          px:"3"
-        },{
-          date: "4",
-          name: "03",
-          address: "酒水",
-          px:"4"
-        },
-       {
-          date: "5",
-          name: "04",
-          address: "饮料",
-          px:"5"
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'已作废'
         },
         {
-          date: "6",
-          name: "05",
-          address: "糖果",
-          px:"6"
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'八月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
         },
         {
-          date: "7",
-          name: "06",
-          address: "茶叶",
-          px:"7"
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'部分入库'
         },
+        {
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'....',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
+        },
+        {
+           date: "CG2018042810101",
+          name: "产品大神供应商",
+          address: "10000.00",
+          data1:'十月大神',
+          data2:'syds',
+          data3:'2018-04-28',
+          data4:'待审核',
+          data5:'待入库'
+        }
       ]
     };
   },
@@ -191,7 +225,7 @@ export default {
 .input-with-select {
   width: 270px;
   height: 20px;
-  margin: 10px 50px;
+  margin: 10px 0px;
 }
 .btn {
   float: right;
@@ -201,5 +235,11 @@ export default {
   position: absolute;
   bottom: 5px;
   margin-left: 249px;
+}
+.xlk{
+    margin: 0px 50px;
+}
+.xlk1{
+    margin: 0px -20px;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="eheader">
       <Eheader title="商品单位"></Eheader>
     </div>
-    <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+    <el-input placeholder="请输入商品单位名/编码" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -38,10 +38,9 @@
     <div class="main1">
       <el-table :data="tableData" border style="width: 100%"
        header-cell-style="background: rgba(242, 242, 242, 1);">
-        <el-table-column prop="date" label="序号" width="180"></el-table-column>
-        <el-table-column prop="name" label="编码" width="180"></el-table-column>
-        <el-table-column prop="address" label="类别名称"></el-table-column>
-        <el-table-column prop="address" label="排序"></el-table-column>
+        <el-table-column prop="date" label="序号" width="240"></el-table-column>
+        <el-table-column prop="name" label="编码" width="240"></el-table-column>
+        <el-table-column prop="address" label="类别名称" width="240"></el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
           <template3>
             <el-button @click="dialogFormVisible = true" type="text" size="small">修改</el-button>
@@ -88,39 +87,39 @@ export default {
         formLabelWidth: '120px',
       tableData: [
         {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          date: "1",
+          name: "000",
+          address: "未指定"
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
+          date: "2",
+          name: "001",
+          address: "个"
         },
         {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
+          date: "3",
+          name: "002",
+          address: "盒"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "4",
+          name: "003",
+          address: "包"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "5",
+          name: "004",
+          address: "件"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "6",
+          name: "005",
+          address: "瓶"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
+          date: "7",
+          name: "006",
+          address: "袋"
         }
       ]
     };

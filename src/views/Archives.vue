@@ -42,15 +42,28 @@
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="编码" width="120"></el-table-column>
-        <el-table-column prop="name" label="名称" width="130"></el-table-column>
-        <el-table-column prop="addrarchivesUpess" label="单位" width="110" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="name" label="类别" width="110"></el-table-column>
-        <el-table-column prop="name" label="零售价" width="110"></el-table-column>
-        <el-table-column prop="name" label="市场指导价" width="110"></el-table-column>
-        <el-table-column prop="name" label="状态" width="100"></el-table-column>
+        <el-table-column prop="name" label="名称" width="120"></el-table-column>
+        <el-table-column prop="data1" label="单位" width="110" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="data2" label="类别" width="80"></el-table-column>
+        <el-table-column prop="data3" label="零售价" width="70"></el-table-column>
+        <el-table-column prop="data4" label="最低销售价" width="70"></el-table-column>
+        <el-table-column prop="data5" label="市场指导价" width="70"></el-table-column>
+        <el-table-column prop="data6" label="成本参考价" width="70"></el-table-column>
+        <el-table-column prop="data7" label="状态" width="70"></el-table-column>
         <el-table-column prop="name" label="..." width="100">
-          <el-button  type="text" size="small"><router-link to="/archivesUp" tag="div">修改</router-link></el-button>
-            <el-button type="text" size="small" @click="open1">删除</el-button>
+          <!-- <el-button  type="text" size="small"><router-link to="/archivesUp" tag="div">修改</router-link></el-button>
+          <el-button type="text" size="small" @click="open1">删除</el-button>-->
+          <el-tooltip placement="bottom">
+            <div slot="content">
+              <ul>
+                <li  @click="open3">详情</li>
+                <li @click="open2">修改</li>
+                <li>上架/下架</li>
+                <li @click="open1">删除</li>
+              </ul>
+            </div>
+            <el-button style="border: none;    padding: 0px 0px;">...</el-button>
+          </el-tooltip>
         </el-table-column>
       </el-table>
     </div>
@@ -77,42 +90,73 @@ export default {
     return {
       fullscreenLoading: false,
       input3: "",
-      test:false,
+      test: false,
       tableData: [
         {
-          date: "2016-05-03",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         },
         {
-          date: "2016-05-02",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         },
         {
-          date: "2016-05-04",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         },
         {
-          date: "2016-05-08",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         },
         {
-          date: "2016-05-06",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         },
         {
-          date: "2016-05-07",
+          date: "62100000001",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-07",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
         }
       ],
       multipleSelection: []
@@ -137,8 +181,7 @@ export default {
     },
     handleSelectionChange(val) {
       this.multipleSelection = val;
-    }
-    ,
+    },
     open1() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -157,9 +200,18 @@ export default {
             message: "已取消删除"
           });
         });
+    },
+    open2(){
+      this.$router.push({
+        path:'/archivesUp'
+      })
+    },
+    open3(){
+      this.$router.push({
+        path:'/archivesUp'
+      })
     }
   }
-  
 };
 </script>
 <style  scoped>
@@ -193,7 +245,7 @@ export default {
 .btn1 {
   z-index: 10;
 }
-.tck{
+.tck {
   width: 100px;
   height: 100px;
   border: 1px black solid;

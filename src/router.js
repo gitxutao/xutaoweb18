@@ -68,7 +68,166 @@ export default new Router({
           path: '/supplier',
           component:()=>import('./views/Supplier.vue'),
         },
-        
+        {
+          path: '/supplieradd',
+          component:()=>import('./views/Supplieradd.vue'),
+        },
+        {
+          path: '/supplierUp',
+          component:()=>import('./views/SupplierUp.vue'),
+        },
+        {
+          path: '/supplierSee',
+          component:()=>import('./views/SupplierSee.vue'),
+        },
+        {
+          path: '/purchase',
+          component:()=>import('./views/Purchase.vue'),
+        },
+        {
+          path: '/purchaseadd',
+          component:()=>import('./views/Purchaseadd.vue'),
+        },
+        {
+          path: '/orderPromotion',
+          component:()=>import('./views/OrderPromotion.vue'),
+        },
+        {
+          path: '/orderPromotionAdd',
+          component:()=>import('./views/OrderPromotionAdd.vue'),
+        },
+        {
+          path: '/purchaseUp',
+          component:()=>import('./views/PurchaseUp.vue'),
+        },
+        {
+          path: '/purchaseSee',
+          component:()=>import('./views/PurchaseSee.vue'),
+        },
+        {
+          path: '/cgthd',
+          component:()=>import('./views/Cgthd.vue'),
+        },
+        {
+          path: '/cgthdAdd',
+          component:()=>import('./views/CgthdAdd.vue'),
+        },
+        {
+          path: '/cgthdUp',
+          component:()=>import('./views/CgthdUp.vue'),
+        },
+        {
+          path: '/cgthdSee',
+          component:()=>import('./views/CgthdSee.vue'),
+        },
+        {
+          path: '/sprk',
+          component:()=>import('./views/Sprk.vue'),
+        },
+        {
+          path: '/sprkSee',
+          component:()=>import('./views/SprkSee.vue'),
+        },
+        {
+          path: '/sprkadd',
+          component:()=>import('./views/Sprkadd.vue'),
+        },
+        {
+          path: '/sprkUp',
+          component:()=>import('./views/SprkUp.vue'),
+        },
+        {
+          path: '/kctb',
+          component:()=>import('./views/Kctb.vue'),
+        },
+        {
+          path: '/kctdadd',
+          component:()=>import('./views/Kctdadd.vue'),
+        },
+        {
+          path: '/kctbSee',
+          component:()=>import('./views/KctbSee.vue'),
+        },
+        {
+          path: '/kctbUp',
+          component:()=>import('./views/KctbUp.vue'),
+        },
+        {
+          path: '/spck',
+          component:()=>import('./views/Spck.vue'),
+        },
+        {
+          path: '/spckadd',
+          component:()=>import('./views/Spckadd.vue'),
+        },
+        {
+          path: '/spckSee',
+          component:()=>import('./views/SpckSee.vue'),
+        },
+        {
+          path: '/spckUp',
+          component:()=>import('./views/SpckUp.vue'),
+        },
+        {
+          path: '/kcpd',
+          component:()=>import('./views/Kcpd.vue'),
+        },
+        {
+          path: '/spkc',
+          component:()=>import('./views/Spkc.vue'),
+        },
+        {
+          path: '/spkcmx',
+          component:()=>import('./views/Spkcmx.vue'),
+        },
+        {
+          path: '/orderPromotionUp',
+          component:()=>import('./views/OrderPromotionUp.vue'),
+        },
+        {
+          path: '/orderPromotionSee',
+          component:()=>import('./views/OrderPromotionSee.vue'),
+        },
+        {
+          path: '/spcx',
+          component:()=>import('./views/Spcx.vue'),
+        },
+        {
+          path: '/zdxsd',
+          component:()=>import('./views/Zdxsd.vue'),
+        },
+        {
+          path: '/zdthd',
+          component:()=>import('./views/Zdthd.vue'),
+        },
+        {
+          path: '/scxsd',
+          component:()=>import('./views/Scxsd.vue'),
+        },
+        {
+          path: '/zdxsjymx',
+          component:()=>import('./views/Zdxsjymx.vue'),
+        },
+        {
+          path: '/zdcwsymx',
+          component:()=>import('./views/Zdcwsymx.vue'),
+        },
+        {
+          path: '/zdxsjyhz',
+          component:()=>import('./views/Zdxsjyhz.vue'),
+        },
+        {
+          path: '/zdcwsthz',
+          component:()=>import('./views/Zdcwsthz.vue'),
+        },
+        {
+          path: '/zdcwtkhz',
+          component:()=>import('./views/Zdcwtkhz.vue'),
+        },
+        {
+          path: '/zdxq',
+          component:()=>import('./views/Zdxq.vue'),
+        },
       ]
     }
   ]
