@@ -76,21 +76,6 @@ CX2018042801"
             <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
           </el-checkbox-group>
         </p>
-        <p class="cxdx">
-          促销对象:
-          <el-checkbox-group
-            v-model="checkedCities"
-            @change="handleCheckedCitiesChange"
-            class="cxzq"
-          >
-            <el-checkbox
-              :indeterminate="isIndeterminate"
-              v-model="checkAll"
-              @change="handleCheckAllChange"
-            >全选</el-checkbox>
-            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
-          </el-checkbox-group>
-        </p>
         <p>
           促销规则：
           <el-radio-group v-model="radio">
@@ -157,11 +142,11 @@ CX2018042801"
       </div>
       </div>
       <el-row class="btn">
-        <el-button type="primary">
-          <router-link to="/orderPromotion" tag="div">保存</router-link>
+        <el-button type="primary" @click="fh">
+          保存
         </el-button>
-        <el-button plain>
-          <router-link to="/orderPromotion" tag="div">取消</router-link>
+        <el-button plain @click="fh">
+          取消
         </el-button>
       </el-row>
     </div>
@@ -228,6 +213,9 @@ export default {
     };
   },
   methods: {
+    fh(){
+      this.$router.go(-1);
+    },
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
@@ -286,7 +274,7 @@ export default {
 .main {
   background: #ffffff;
   width: 1070px;
-  height: 1200px;
+  height: 1100px;
   margin: 115px 240px;
   position: absolute;
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="eheader">
-      <Eheader title="商品类别"></Eheader>
+      <Eheader title="会员类别"></Eheader>
     </div>
-    <el-input placeholder="请输入类别名/编码" v-model="input3" class="input-with-select">
+    <el-input placeholder="请输入采购单号" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
         icon="el-icon-search"
@@ -13,40 +13,19 @@
       ></el-button>
     </el-input>
     <el-row class="btn">
-      <el-button>导出</el-button>
-      <el-button type="primary" @click="dialogFormVisible = true">新增</el-button>
-      <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-          <el-form-item label="上级类别" :label-width="formLabelWidth" >
-            <el-input v-model="form.name" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="编码" :label-width="formLabelWidth">
-            <el-input v-model="form.region" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="名称" :label-width="formLabelWidth">
-            <el-input v-model="form.date1" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="排序" :label-width="formLabelWidth">
-            <el-input v-model="form.date2" autocomplete="off"></el-input>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogFormVisible = false,open2()">保 存</el-button>
-        </div>
-      </el-dialog>
+      <el-button type="primary"><router-link to="/hylbadd" tag="div">新增</router-link></el-button>
     </el-row>
-    <div class="main1" >
-      <el-table :data="obj"
-       border style="width: 100%"
-      header-cell-style="background: rgba(242,242, 242, 1);">
-        <el-table-column prop="phone" label="序号" width="100"></el-table-column>
-        <el-table-column prop="name" label="编码" width="180"></el-table-column>
-        <el-table-column prop="state" label="类别名称"></el-table-column>
-        <el-table-column prop="userid" label="排序"></el-table-column>
-        <el-table-column fixed="right" label="操作" width="150">
+    <div class="main1">
+      <el-table :data="tableData" border style="width: 100%"
+       header-cell-style="background: rgba(242, 242, 242, 1);">
+        <el-table-column prop="date" label="编码" width="150"></el-table-column>
+        <el-table-column prop="name" label="等级名称" width="150"></el-table-column>
+        <el-table-column prop="address" label="所属经验值" width="150"></el-table-column>
+        <el-table-column prop="data1" label="会员特价" width="150"></el-table-column>
+        <el-table-column prop="data2" label="积分倍数" width="150"></el-table-column>
+        <el-table-column fixed="right" label="操作" width="140">
           <template3>
-            <el-button @click="dialogFormVisible = true" type="text" size="small">修改</el-button>
+            <el-button type="text" size="small"><router-link to="/hylbadd" tag="div">修改</router-link></el-button>
             <el-button type="text" size="small" @click="open1">删除</el-button>
           </template3>
         </el-table-column>
@@ -77,7 +56,6 @@ export default {
         dialogFormVisible: false,
         fullscreenLoading: false,
         input3:'',
-        obj:'',
         form: {
           name: '',
           region: '',
@@ -89,6 +67,36 @@ export default {
           desc: ''
         },
         formLabelWidth: '120px',
+      tableData: [
+        {
+          date: "01",
+          name: "注册会员",
+          address: "0",
+          data1:'不支持',
+          data2:'1.0',
+        },
+         {
+          date: "02",
+          name: "白银会员",
+          address: "500",
+          data1:'支持',
+          data2:'1.0',
+        },
+        {
+          date: "03",
+          name: "黄金会员",
+          address: "2000",
+          data1:'支持',
+          data2:'1.5',
+        },
+        {
+          date: "04",
+          name: "钻石会员",
+          address: "10000",
+          data1:'支持',
+          data2:'2.0',
+        }
+      ]
     };
   },
   methods: {
@@ -128,12 +136,6 @@ export default {
           });
         });
     }
-  },
-  created(){
-      this.axios.get("http://yapi.dapengjiaoyu.com/mock/380/order").then((res)=>{
-             this.obj=res.data.data
-            console.log(res.data.data)
-      })
   }
 };
 </script>
@@ -141,7 +143,7 @@ export default {
 .main {
   background: #ffffff;
   width: 1070px;
-  height: 550px;
+  height: 390px;
   margin: 115px 240px;
   position: absolute;
 }

@@ -25,6 +25,106 @@
             v-loading.fullscreen.lock="fullscreenLoading"
           ></el-button>
         </el-input>
+        <p class="gjss" @click="dj()">高级搜索</p>
+        <div v-show="test" class="gjsstk">
+          <div class="top">
+            <h3>高级搜索</h3>
+          </div>
+          <div class="content">
+            <div class="content1">
+              <el-form
+                :label-position="labelPosition"
+                label-width="80px"
+                :model="formLabelAlign"
+                class="item1"
+              >
+                <el-form-item label="关键词">
+                  <el-input
+                    v-model="formLabelAlign.name"
+                    class="item"
+                    placeholder="请输入商品名称/编码/助记码/关键字"
+                  ></el-input>
+                </el-form-item>
+                <el-form-item label="商品类别">
+                  <select name id="xlk">
+                    <option value>全部分类</option>
+                  </select>
+                </el-form-item>
+                <ul class="lsj">
+                  <li>零售价区间</li>
+                  <li>
+                    <el-input v-model="input" placeholder="￥" class="lsjsrk"></el-input>
+                  </li>
+                  <li>—</li>
+                  <li>
+                    <el-input v-model="input1" placeholder="￥" class="lsjsrk"></el-input>
+                  </li>
+                </ul>
+                <p class="dxk">
+                  <span class="dxk1">商品标签</span>
+                  <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                    <el-checkbox
+                      :indeterminate="isIndeterminate"
+                      v-model="checkAll"
+                      @change="handleCheckAllChange"
+                    >全选</el-checkbox>
+                    <el-checkbox
+                      class="dxk2"
+                      v-for="city in cities"
+                      :label="city"
+                      :key="city"
+                    >{{city}}</el-checkbox>
+                  </el-checkbox-group>
+                </p>
+              </el-form>
+            </div>
+            <div class="content2">
+              <ul class="content3">
+                <li>
+                  积分赠送
+                  <el-radio-group v-model="radio">
+                    <el-radio :label="3">积分赠送</el-radio>
+                    <el-radio :label="6">不赠送积分</el-radio>
+                  </el-radio-group>
+                </li>
+                <li>
+                  运费计算
+                  <el-radio-group v-model="radio1">
+                    <el-radio :label="3">买家承担</el-radio>
+                    <el-radio :label="6">卖家包邮</el-radio>
+                  </el-radio-group>
+                </li>
+                <li>
+                  商城设置
+                  <el-radio-group v-model="radio2">
+                    <el-radio :label="3">设置商城</el-radio>
+                    <el-radio :label="6">未设置商城</el-radio>
+                  </el-radio-group>
+                </li>
+                <li>
+                  促销状态
+                  <el-radio-group v-model="radio3">
+                    <el-radio :label="3">正常</el-radio>
+                    <el-radio :label="6">促销中</el-radio>
+                  </el-radio-group>
+                </li>
+                <li>
+                  商品状态
+                  <el-radio-group v-model="radio4">
+                    <el-radio :label="3">上架</el-radio>
+                    <el-radio :label="6">下架</el-radio>
+                  </el-radio-group>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bottom">
+            <el-row class="btn2">
+          <el-button type="primary" @click="openFullScreen1">确认</el-button>
+          <el-button plain @click="fh">取消</el-button>
+        </el-row>
+          </div>
+        </div>
         <el-row class="btn">
           <el-button plain>导出</el-button>
           <el-button type="primary">
@@ -56,7 +156,7 @@
           <el-tooltip placement="bottom">
             <div slot="content">
               <ul>
-                <li  @click="open3">详情</li>
+                <li @click="open3">详情</li>
                 <li @click="open2">修改</li>
                 <li>上架/下架</li>
                 <li @click="open1">删除</li>
@@ -82,6 +182,7 @@
 </template>
 <script>
 import Eheader from "../components/Eheader";
+const cityOptions = ["新品上架", "热卖推荐", "清仓优惠"];
 export default {
   components: {
     Eheader
@@ -90,7 +191,24 @@ export default {
     return {
       fullscreenLoading: false,
       input3: "",
+      input: "",
+      input1: "",
+      radio: 3,
+      radio1: 3,
+      radio2: 3,
+      radio3: 3,
+      radio4: 3,
+      checkAll: false,
+      checkedCities: ["上海", "北京"],
+      cities: cityOptions,
+      isIndeterminate: true,
       test: false,
+      labelPosition: "right",
+      formLabelAlign: {
+        name: "",
+        region: "",
+        type: ""
+      },
       tableData: [
         {
           date: "62100000001",
@@ -164,8 +282,25 @@ export default {
   },
 
   methods: {
+    fh(){
+     this.test=false
+    },
+    handleCheckAllChange(val) {
+      this.checkedCities = val ? cityOptions : [];
+      this.isIndeterminate = false;
+    },
+    handleCheckedCitiesChange(value) {
+      let checkedCount = value.length;
+      this.checkAll = checkedCount === this.cities.length;
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.cities.length;
+    },
+    dj() {
+      this.test = true;
+    },
     openFullScreen1() {
       this.fullscreenLoading = true;
+      this.test=false
       setTimeout(() => {
         this.fullscreenLoading = false;
       }, 2000);
@@ -201,15 +336,15 @@ export default {
           });
         });
     },
-    open2(){
+    open2() {
       this.$router.push({
-        path:'/archivesUp'
-      })
+        path: "/archivesUp"
+      });
     },
-    open3(){
+    open3() {
       this.$router.push({
-        path:'/archivesUp'
-      })
+        path: "/archivesUp"
+      });
     }
   }
 };
@@ -231,7 +366,7 @@ export default {
 .input-with-select {
   width: 270px;
   height: 20px;
-  margin: 10px 50px;
+  margin: 10px 10px;
 }
 .btn {
   float: right;
@@ -248,6 +383,85 @@ export default {
 .tck {
   width: 100px;
   height: 100px;
-  border: 1px black solid;
+}
+.gjss {
+  position: absolute;
+  z-index: 5;
+  margin: -40px 380px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.gjsstk {
+  width: 1070px;
+  height: 400px;
+  position: absolute;
+  z-index: 10;
+  margin: -70px -50px;
+  background-color: white;
+}
+.top {
+  width: 1070px;
+  height: 60px;
+}
+.content {
+  width: 1070px;
+  height: 240px;
+}
+.bottom {
+  width: 1070px;
+  height: 95px;
+}
+.top h3 {
+  margin: 20px 30px;
+}
+.content1 {
+  width: 50%;
+  height: 240px;
+  float: left;
+}
+.content2 {
+  width: 49.5%;
+  height: 240px;
+  float: left;
+}
+.item {
+  width: 300px;
+  height: 40px;
+}
+.item1 {
+  margin: 0px 40px;
+}
+#xlk {
+  width: 300px;
+  height: 40px;
+}
+.lsjsrk {
+  width: 130px;
+  height: 20px;
+}
+.lsj {
+  margin: 0px -20px;
+}
+.lsj li {
+  list-style: none;
+  float: left;
+  padding-left: 10px;
+}
+.dxk {
+  float: left;
+  margin: 20px 50px;
+}
+.dxk1 {
+  margin: 0px -45px;
+}
+.content3{
+  margin: 0px 60px;
+}
+.content3 li{ 
+list-style-type:none;
+padding-top: 26px;
+}
+.btn2{
+  margin: 20px 50px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template class="main1">
   <div class="main">
     <div class="eheader">
-      <Eheader title="终端销售单详情"></Eheader>
+      <Eheader title="终端退货单详情"></Eheader>
     </div>
     <div class="content">
       <div>
@@ -137,37 +137,7 @@ export default {
           date14: "",
           date15: ""
         },
-        {
-          date10: "支付宝",
-          date11: "100",
-          date12: "2018-04-28 12:12:12",
-          date13: "支付成功",
-          date14: "",
-          date15: "0.02元抹零，无需支付"
-        },
-        {
-          date10: "微信支付",
-          date11: "150",
-          date12: "2018-04-28 12:12:12",
-          date13: "支付失败",
-          date14: "",
-          date15: ""
-        },
-        {
-          date10: "银行卡",
-          date11: "150",
-          date12: "2018-04-28 12:12:12",
-          date13: "支付失败",
-          date14: "6288 8888 8888 8888",
-          date15: ""
-        },{
-          date10: "储值卡",
-          date11: "150",
-          date12: "2018-04-28 12:12:12",
-          date13: "支付失败",
-          date14: "",
-          date15: "0.01元抹零，无需支付"
-        }
+        
       ]
     };
   },
@@ -182,7 +152,7 @@ export default {
 .main {
   background: #ffffff;
   width: 1070px;
-  height: 1100px;
+  height: 900px;
   margin: 115px 240px;
   position: absolute;
 }

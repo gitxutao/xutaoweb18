@@ -2,7 +2,7 @@
   <div class="main">
     <div class="eheader">
       <Eheader title="
-编辑调拨单"></Eheader>
+编辑库存盘点"></Eheader>
     </div>
     <div class="content">
         <el-row class="btn1">
@@ -73,10 +73,10 @@
           </ul>
       </div>
       <el-row class="btn">
-           <el-button type="primary">
-            <router-link to="/kctb" tag="div">保存</router-link>
+           <el-button type="primary" @click="fh">
+            保存
           </el-button>
-          <el-button plain><router-link to="/kctb" tag="div">取消</router-link></el-button>
+          <el-button plain @click="fh">取消</el-button>
         </el-row>
     </div>
   </div>
@@ -119,6 +119,9 @@ export default {
     };
   },
   methods:{
+    fh(){
+      this.$router.go(-1);
+    },
       open(){
           this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",

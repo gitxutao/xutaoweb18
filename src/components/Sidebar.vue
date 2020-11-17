@@ -83,8 +83,8 @@
               <span>会员</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="6-1">• 会员类别</el-menu-item>
-              <el-menu-item index="6-2">• 会员列表</el-menu-item>
+              <el-menu-item index="6-1"><router-link to="/hylb" tag="div">• 会员类别</router-link></el-menu-item>
+              <el-menu-item index="6-2"><router-link to="/hyLb1" tag="div">• 会员列表</router-link></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>

@@ -30,8 +30,8 @@
           </el-form-item>
         </el-form>
         <el-row class="btn">
-          <el-button type="primary"><router-link to="/picture" tag="div">保存</router-link></el-button>
-          <el-button plain><router-link to="/picture" tag="div">取消</router-link></el-button>
+          <el-button type="primary" @click="fh">保存</el-button>
+          <el-button plain @click="fh">取消</el-button>
         </el-row>
       </div>
     </div>
@@ -51,6 +51,11 @@ export default {
       text: "",
       textarea: ""
     };
+  },
+  methods:{
+    fh(){
+      this.$router.go(-1);
+    },
   }
 };
 </script>

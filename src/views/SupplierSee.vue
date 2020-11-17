@@ -100,11 +100,11 @@
           <el-radio v-model="radio" label="2">关闭</el-radio>
         </p>
         <el-row class="btn">
-          <el-button type="primary">
-            <router-link to="/supplier" tag="div">保存</router-link>
+          <el-button type="primary" @click="fh">
+            保存
           </el-button>
-          <el-button plain>
-            <router-link to="/supplier" tag="div">取消</router-link>
+          <el-button plain @click="fh">
+            取消
           </el-button>
         </el-row>
       </div>
@@ -178,6 +178,9 @@ export default {
     
   },
   methods: {
+    fh(){
+      this.$router.go(-1);
+    },
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },

@@ -228,6 +228,35 @@ export default new Router({
           path: '/zdxq',
           component:()=>import('./views/Zdxq.vue'),
         },
+        {
+          path: '/zdxq1',
+          component:()=>import('./views/Zdxq1.vue'),
+        },
+        {
+          path: '/zdxq2',
+          component:()=>import('./views/Zdxq2.vue'),
+        },
+        {
+          path: '/hylb',
+          component:()=>import('./views/Hylb.vue'),
+        },
+        {
+          path: '/hylbadd',
+          component:()=>import('./views/Hylbadd.vue'),
+        },
+        {
+          path: '/hyLb1',
+          component:()=>import('./views/HyLb1.vue'),
+        },
+        {
+          path: '/hyLb1add',
+          component:()=>import('./views/HyLb1add.vue'),
+        },
+        {
+          path: '/hyLb1See',
+          component:()=>import('./views/HyLb1See.vue'),
+        },
+        
       ]
     }
   ]

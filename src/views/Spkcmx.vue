@@ -40,9 +40,6 @@
     </el-input>
     <el-row class="btn">
       <el-button>导出</el-button>
-      <el-button type="primary">
-        <router-link to="/spckadd" tag="div">新增</router-link>
-      </el-button>
       <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="上级类别" :label-width="formLabelWidth">

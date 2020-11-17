@@ -5,6 +5,7 @@
     </div>
     <div>
       <div class="content">
+
         <ul class="content1">
           <li>
             <el-radio v-model="radio1" label="1" border class="bk">
@@ -37,22 +38,22 @@
             </el-radio>
           </li>
            <li>
-            <el-radio v-model="radio1" label="6" border class="bk">
+            <el-radio v-model="radio1" label="7" border class="bk">
               <img src="../assets/12.png" alt />
             </el-radio>
           </li>
            <li>
-            <el-radio v-model="radio1" label="6" border class="bk">
+            <el-radio v-model="radio1" label="8" border class="bk">
               <img src="../assets/12.png" alt />
             </el-radio>
           </li>
            <li>
-            <el-radio v-model="radio1" label="6" border class="bk">
+            <el-radio v-model="radio1" label="9" border class="bk">
               <img src="../assets/12.png" alt />
             </el-radio>
           </li>
            <li>
-            <el-radio v-model="radio1" label="6" border class="bk">
+            <el-radio v-model="radio1" label="10" border class="bk">
               <img src="../assets/12.png" alt />
             </el-radio>
           </li>
@@ -95,8 +96,7 @@ export default {
 }
 .content {
   width: 980px;
-  height: 503px;
-  border: 1px solid black;
+  height: 463px;
   margin: 0px auto;
 }
 .main1 {

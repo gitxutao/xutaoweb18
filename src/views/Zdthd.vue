@@ -53,7 +53,7 @@
         <el-table-column fixed="right" label="操作" width="50">
           <template3>
             <el-button type="text" size="small">
-              <router-link to="/spckUp" tag="div">详情</router-link>
+              <router-link to="/zdxq1" tag="div">详情</router-link>
             </el-button>
           </template3>
         </el-table-column>
