@@ -27,7 +27,7 @@
         tooltip-effect="dark"
         style="width: 100%"
         @selection-change="handleSelectionChange"
-        header-cell-style="background: rgba(242, 242, 242, 1);"
+        header-cell-style="background: rgba(242, 242, 242, 1);" border
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="会员卡号" width="120"></el-table-column>
@@ -114,17 +114,6 @@ export default {
       input3: "",
       test: false,
       tableData: [
-        {
-          date: "888 888",
-          name: "产品大神（幸福店）",
-          data1: "18888888",
-          data2: "88",
-          data3: "0.00",
-          data4: "88.00",
-          data5: "4",
-          data6: "2018-04-28",
-          data7: "上架"
-        },
         {
           date: "888 888",
           name: "产品大神（幸福店）",
@@ -271,7 +260,7 @@ export default {
   width: 950px;
   height: 550px;
   margin: 10px 50px;
-}
+} 
 .input-with-select {
   width: 270px;
   height: 20px;
@@ -279,7 +268,7 @@ export default {
 }
 .btn {
   float: right;
-  margin: 10px 70px;
+  margin: 10px 0px;
 }
 .block {
   position: absolute;

@@ -40,10 +40,10 @@
       <el-table :data="obj"
        border style="width: 100%"
       header-cell-style="background: rgba(242,242, 242, 1);">
-        <el-table-column prop="phone" label="序号" width="100"></el-table-column>
+        <el-table-column prop="userid" label="序号" width="100"></el-table-column>
         <el-table-column prop="name" label="编码" width="180"></el-table-column>
         <el-table-column prop="state" label="类别名称"></el-table-column>
-        <el-table-column prop="userid" label="排序"></el-table-column>
+        <el-table-column prop="phone" label="排序"></el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
           <template3>
             <el-button @click="dialogFormVisible = true" type="text" size="small">修改</el-button>
@@ -77,7 +77,7 @@ export default {
         dialogFormVisible: false,
         fullscreenLoading: false,
         input3:'',
-        obj:'',
+        obj:"",
         form: {
           name: '',
           region: '',

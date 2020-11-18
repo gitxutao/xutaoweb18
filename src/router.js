@@ -8,6 +8,10 @@ export default new Router({
     path: '/',
     component:()=>import('./components/login.vue'),
      },
+     {
+     path: '/login',
+     component:()=>import('./components/login.vue'),
+      },
     {
       path:'/main',
       component:()=>import('./views/Main.vue'),

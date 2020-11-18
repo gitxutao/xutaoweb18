@@ -4,9 +4,23 @@
       <Eheader title="入库单详情"></Eheader>
     </div>
     <div class="content">
-        <el-row class="btn1">
-          <el-button type="primary"><router-link to="/picture" tag="div">选择商品</router-link></el-button>
-        </el-row>
+      <el-row class="btn1">
+        <el-button type="text" @click="dialogFormVisible = true">扫条形码</el-button>
+        <el-dialog title="商品扫描" :visible.sync="dialogFormVisible">
+          <el-form :model="form">
+            <el-form-item label="商品编码:" :label-width="formLabelWidth">
+              <el-input v-model="form.name" autocomplete="off" placeholder="62100000000001" class="el-input__inner1"></el-input>
+            </el-form-item>
+            <el-form-item label="商品数量:" :label-width="formLabelWidth">
+              <el-input-number v-model="num" @change="handleChange" :min="1"  label="描述文字" class="num"></el-input-number>
+            </el-form-item>
+          </el-form>
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false,open1()">确 定</el-button>
+          </div>
+        </el-dialog>
+      </el-row>
       <div class="content1">
         <div class="content1_left">
           <ul>
@@ -64,19 +78,17 @@
         </div>
       </div>
       <div>
-          <ul class="zdxx">
-              <li>制单人:syds</li>
-              <li>制单时间：2018-04-27 12:12:12</li>
-              <li>审核人:____________</li>
-              <li>审核时间：_________</li>
-          </ul>
+        <ul class="zdxx">
+          <li>制单人:syds</li>
+          <li>制单时间：2018-04-27 12:12:12</li>
+          <li>审核人:____________</li>
+          <li>审核时间：_________</li>
+        </ul>
       </div>
       <el-row class="btn">
-           <el-button type="primary" @click="fh">
-            保存
-          </el-button>
-          <el-button plain @click="fh">取消</el-button>
-        </el-row>
+        <el-button type="primary" @click="fh">保存</el-button>
+        <el-button plain @click="fh">取消</el-button>
+      </el-row>
     </div>
   </div>
 </template>
@@ -89,6 +101,13 @@ export default {
   data() {
     return {
       input: "",
+      dialogFormVisible: false,
+      formLabelWidth: '120px',
+      num:1,
+      form: {
+          name: '',
+          region: '',
+      },
       tableData: [
         {
           date: "2016-05-02",
@@ -116,14 +135,16 @@ export default {
         }
       ]
     };
-  }
-  ,
-  methods:{
-    fh(){
+  },
+  methods: {
+     handleChange(value) {
+        console.log(value);
+      },
+    fh() {
       this.$router.go(-1);
     },
-      open(){
-          this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+    open() {
+      this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
@@ -140,7 +161,14 @@ export default {
             message: "已取消删除"
           });
         });
-      }
+    },
+    open1() {
+        this.$message({
+          showClose: true,
+          message: '操作成功',
+          type: 'success'
+        });
+      },
   }
 };
 </script>
@@ -199,21 +227,27 @@ export default {
   margin-top: -110px;
   margin-left: 800px;
 }
-.zdxx{
-    margin: 30px 40px;
+.zdxx {
+  margin: 30px 40px;
 }
-.zdxx li{
-    list-style-type:none;
-    float: left;
-    padding-left: 40px;
+.zdxx li {
+  list-style-type: none;
+  float: left;
+  padding-left: 40px;
 }
-.btn{
-    position: absolute;
-    margin: 70px 50px;
+.btn {
+  position: absolute;
+  margin: 70px 50px;
 }
-.btn1{
-    position: absolute;
-    right: 50px;
-    top: 10px;
+.btn1 {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+}
+.el-input__inner1{
+  width: 300px;
+}
+.num{
+  width: 300px;
 }
 </style>

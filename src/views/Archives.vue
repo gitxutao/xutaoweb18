@@ -5,17 +5,11 @@
     </div>
     <div class="main1">
       <div>
-        <el-dropdown trigger="click">
-          <span class="el-dropdown-link">
-            全部状态
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>全部状态</el-dropdown-item>
-            <el-dropdown-item>上架</el-dropdown-item>
-            <el-dropdown-item>下架</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+        <select name="" id="xlk2">
+         <option value="" class="xlk3">全部状态</option>
+          <option value="" class="xlk3">上架</option>
+          <option value="" class="xlk3">下架</option>
+        </select>
         <el-input placeholder="请输入商品名称/编码" v-model="input3" class="input-with-select">
           <el-button
             slot="append"
@@ -138,7 +132,7 @@
         tooltip-effect="dark"
         style="width: 100%"
         @selection-change="handleSelectionChange"
-        header-cell-style="background: rgba(242, 242, 242, 1);"
+        header-cell-style="background: rgba(242, 242, 242, 1);" border
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="编码" width="120"></el-table-column>
@@ -146,7 +140,7 @@
         <el-table-column prop="data1" label="单位" width="110" show-overflow-tooltip></el-table-column>
         <el-table-column prop="data2" label="类别" width="80"></el-table-column>
         <el-table-column prop="data3" label="零售价" width="70"></el-table-column>
-        <el-table-column prop="data4" label="最低销售价" width="70"></el-table-column>
+        <el-table-column prop="data4" label="最低销售价" width="83"></el-table-column>
         <el-table-column prop="data5" label="市场指导价" width="70"></el-table-column>
         <el-table-column prop="data6" label="成本参考价" width="70"></el-table-column>
         <el-table-column prop="data7" label="状态" width="70"></el-table-column>
@@ -222,6 +216,17 @@ export default {
           data7: "上架"
         },
         {
+          date: "62100000001",
+          name: "王小虎",
+          data1: "包",
+          data2: "生活用品",
+          data3: "8.00",
+          data4: "5.00",
+          data5: "18.00",
+          data6: "3.00",
+          data7: "上架"
+        },
+         {
           date: "62100000001",
           name: "王小虎",
           data1: "包",
@@ -464,4 +469,8 @@ padding-top: 26px;
 .btn2{
   margin: 20px 50px;
 }
+#xlk2{
+  border: none;
+}
+
 </style>

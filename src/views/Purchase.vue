@@ -1,32 +1,41 @@
 <template>
-  <div class="main">
+  <div class="main" 
+  >
     <div class="eheader">
       <Eheader title="采购单"></Eheader>
     </div>
-     <el-dropdown trigger="click" class="xlk">
-          <span class="el-dropdown-link">
-            审核状态
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>审核状态</el-dropdown-item>
-            <el-dropdown-item>待审核</el-dropdown-item>
-            <el-dropdown-item>审核失败</el-dropdown-item>
-            <el-dropdown-item>审核成功</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <el-dropdown trigger="click" class="xlk1">
-          <span class="el-dropdown-link">
-            入库状态
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>入库状态</el-dropdown-item>
-            <el-dropdown-item>已作废</el-dropdown-item>
-            <el-dropdown-item>待入库</el-dropdown-item>
-            <el-dropdown-item>部分入库</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+    <el-dropdown trigger="click" class="xlk">
+      <span class="el-dropdown-link">
+        审核状态
+        <i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>
+          <p @click="openFullScreen2">审核状态</p>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <p @click="openFullScreen2">待审核</p>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <p @click="openFullScreen2">审核失败</p>
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <p @click="openFullScreen2">审核成功</p>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <el-dropdown trigger="click" class="xlk1">
+      <span class="el-dropdown-link">
+        入库状态
+        <i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>入库状态</el-dropdown-item>
+        <el-dropdown-item>已作废</el-dropdown-item>
+        <el-dropdown-item>待入库</el-dropdown-item>
+        <el-dropdown-item>部分入库</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
     <el-input placeholder="请输入采购单号" v-model="input3" class="input-with-select">
       <el-button
         slot="append"
@@ -37,8 +46,10 @@
       ></el-button>
     </el-input>
     <el-row class="btn">
-          <el-button>导出</el-button>
-      <el-button type="primary"><router-link to="/purchaseadd" tag="div">新增</router-link></el-button>
+      <el-button>导出</el-button>
+      <el-button type="primary">
+        <router-link to="/purchaseadd" tag="div">新增</router-link>
+      </el-button>
       <el-dialog title="商品类别-新增/编辑" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="上级类别" :label-width="formLabelWidth">
@@ -61,8 +72,13 @@
       </el-dialog>
     </el-row>
     <div class="main1">
-      <el-table :data="tableData" border style="width: 100%"
-       header-cell-style="background: rgba(242, 242, 242, 1);">
+      <el-table
+        :data="tableData"
+        border
+        style="width: 100%"
+        header-cell-style="background: rgba(242, 242, 242, 1);"
+        
+      >
         <el-table-column prop="date" label="采购单号" width="150"></el-table-column>
         <el-table-column prop="name" label="供应商" width="130"></el-table-column>
         <el-table-column prop="address" label="采购金额"></el-table-column>
@@ -73,8 +89,12 @@
         <el-table-column prop="data5" label="入库状态"></el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
           <template3>
-            <el-button type="text" size="small"><router-link to="/purchaseUp" tag="div">修改</router-link></el-button>
-            <el-button type="text" size="small"><router-link to="/purchaseSee" tag="div">查看</router-link></el-button>
+            <el-button type="text" size="small">
+              <router-link to="/purchaseUp" tag="div">修改</router-link>
+            </el-button>
+            <el-button type="text" size="small">
+              <router-link to="/purchaseSee" tag="div">查看</router-link>
+            </el-button>
             <el-button type="text" size="small" @click="open1">删除</el-button>
           </template3>
         </el-table-column>
@@ -102,95 +122,107 @@ export default {
   data() {
     return {
       dialogTableVisible: false,
-        dialogFormVisible: false,
-        fullscreenLoading: false,
-        input3:'',
-        form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '120px',
+      dialogFormVisible: false,
+      fullscreenLoading: false,
+       loading: true,
+      input3: "",
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      },
+      formLabelWidth: "120px",
       tableData: [
         {
           date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'十月大神',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'待入库'
+          data1: "十月大神",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "待入库"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'...',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'待入库'
+          data1: "...",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "待入库"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'十月大神',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'已作废'
+          data1: "十月大神",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "已作废"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'八月大神',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'待入库'
+          data1: "八月大神",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "待入库"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'十月大神',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'部分入库'
+          data1: "十月大神",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "部分入库"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'....',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'待入库'
+          data1: "....",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "待入库"
         },
         {
-           date: "CG2018042810101",
+          date: "CG2018042810101",
           name: "产品大神供应商",
           address: "10000.00",
-          data1:'十月大神',
-          data2:'syds',
-          data3:'2018-04-28',
-          data4:'待审核',
-          data5:'待入库'
+          data1: "十月大神",
+          data2: "syds",
+          data3: "2018-04-28",
+          data4: "待审核",
+          data5: "待入库"
         }
       ]
     };
   },
   methods: {
+    openFullScreen2() {
+      const loading = this.$loading({
+        lock: false,
+        text: "Loading",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)"
+      });
+      setTimeout(() => {
+        loading.close();
+      }, 1000);
+    },
     openFullScreen1() {
       this.fullscreenLoading = true;
       setTimeout(() => {
@@ -202,12 +234,12 @@ export default {
         confirmButtonText: "确定"
       });
     },
-     open2() {
-        this.$message({
-          message: '恭喜你，这是一条成功消息',
-          type: 'success'
-        });
-      },
+    open2() {
+      this.$message({
+        message: "恭喜你，这是一条成功消息",
+        type: "success"
+      });
+    },
     open1() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -258,10 +290,10 @@ export default {
   bottom: 5px;
   margin-left: 249px;
 }
-.xlk{
-    margin: 0px 50px;
+.xlk {
+  margin: 0px 50px;
 }
-.xlk1{
-    margin: 0px -20px;
+.xlk1 {
+  margin: 0px -20px;
 }
 </style>

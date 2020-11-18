@@ -115,4 +115,7 @@ export default {
   overflow-y:scroll;
   position: relative;
 }
+.sidebar{
+  background: rgba(39, 68, 97, 1);
+}
 </style>
