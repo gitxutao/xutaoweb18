@@ -6,9 +6,9 @@
       width="10%"
       height="5%"
       alt
-    /> -->
+    />-->
     <el-row>
-      <el-col :span="7" :offset="15" >
+      <el-col :span="7" :offset="15">
         <div class="grid-content bg-purple-dark">
           <p class="title">花生米超市后台系统</p>
           <div class="input_list">
@@ -16,58 +16,48 @@
               <el-input placeholder="请输入账号" v-model="username" clearable ref="input">
                 <i slot="prefix" class="el-icon-user"></i>
               </el-input>
-              <el-alert title="账号不能为空" type="error" :closable="false" show-icon v-show="usernameF"></el-alert>
+              <el-alert title="账号不能为空" type="error" :closable="false" show-icon v-show="username1"></el-alert>
               <el-alert
                 title="请输入正确的账号"
                 type="error"
                 :closable="false"
                 show-icon
-                v-show="usernameF1"
+                v-show="username2"  class="username2"
               ></el-alert>
             </div>
             <div>
-              <el-input type="password" placeholder="请输入密码" v-model="pwd" clearable  ref="input1">
+              <el-input
+                type="password"
+                placeholder="请输入密码"
+                v-model="password"
+                clearable
+                ref="input1"
+              >
                 <i slot="prefix" class="el-icon-lock"></i>
               </el-input>
-              <el-alert title="密码不能为空" type="error" :closable="false" show-icon v-show="usernameP"></el-alert>
+              <el-alert title="密码不能为空" type="error" :closable="false" show-icon v-show="password1"></el-alert>
               <el-alert
                 title="请输入正确的密码"
                 type="error"
                 :closable="false"
                 show-icon
-                v-show="usernameP1"
+                v-show="password2" class="username2"
               ></el-alert>
             </div>
             <div>
-              <el-input placeholder="请输入验证码" v-model="num" clearable class="yzm"  ref="input2">
+              <el-input placeholder="请输入验证码" v-model="yzm1" clearable class="yzm" ref="input2">
                 <i slot="prefix" class="el-icon-document"></i>
               </el-input>
-              <el-alert
-                title="图形验证码不能为空"
-                type="error"
-                :closable="false"
-                show-icon
-                v-show="usernameY"
-              ></el-alert>
-              <el-alert
-                title="请输入正确的图形验证码"
-                type="error"
-                :closable="false"
-                show-icon
-                v-show="usernameY1"
-              ></el-alert>
-              <img
-                class="yzms"
-                src="../assets/7.png"
-                width="102"
-                height="44"
-                alt
-              />
+              <el-alert title="图形验证码不能为空" type="error" :closable="false" show-icon v-show="yzm2"></el-alert>
+              <el-alert title="请输入正确的验证码" type="error" :closable="false" show-icon v-show="yzm3" class="yzm4"></el-alert>
+              <img class="yzms" src="../assets/7.png" width="102" height="44" alt />
             </div>
           </div>
           <el-button type="primary" @click="denglu()">登录</el-button>
-          <router-link to="/main"> <el-link :underline="false" type="warning" class="xy">免校验直接登录</el-link></router-link>
-         
+          <router-link to="/main">
+            <el-link :underline="false" type="warning" class="xy">免校验直接登录</el-link>
+          </router-link>
+
           <p></p>
         </div>
       </el-col>
@@ -80,83 +70,73 @@ export default {
   data() {
     return {
       username: "",
-      pwd: "",
-      num1: "",
-      usernameF: false,
-      usernameY: false,
-      usernameP: false,
-      usernameF1: false,
-      usernameY1: false,
-      usernameP1: false,
+      password: "",
+      yzm1: "",
+      username1: false,
+      username2: false,
+      password1: false,
+      password2: false,
+      yzm2: false,
+      yzm3: false
     };
   },
 
-computed: {
+  computed: {
     num: {
-      get: function () {
+      get: function() {
         return this.num1;
       },
-      set: function (val) {
+      set: function(val) {
         this.num1 = val.toUpperCase();
-      },
-    },
+      }
+    }
   },
   methods: {
     denglu() {
       if (this.username == "") {
-        this.usernameF = true;
-        this.usernameF1 = false;
-        this.$nextTick(() => {
-          this.$refs.input.focus();
-        });
-      } else if (this.pwd == "") {
-        this.usernameP1 = false;
-        this.usernameP = true;
-        this.$nextTick(() => {
-          this.$refs.input1.focus();
-        });
-      } else if (this.num1 == "") {
-        this.usernameY1 = false;
-        this.usernameY = true;
-        this.$nextTick(() => {
-          this.$refs.input2.focus();
-        });
-      }
-      if (this.username != "admin") {
-        this.usernameF1 = true;
-        this.usernameF = false;
-        this.$nextTick(() => {
-          this.$refs.input.focus();
-        });
-      } else if (this.pwd != "123456") {
-        this.usernameP1 = false;
-        this.usernameP = true;
-        this.$nextTick(() => {
-          this.$refs.inpu1t.focus();
-        });
-      } else if (this.num1 != "PAN5") {
-        this.usernameF1 = false;
-        this.usernameF = true;
-        this.$nextTick(() => {
-          this.$refs.input2.focus();
-        });
+        this.username1 = true;
+      } else if (this.password == "") {
+        this.password1 = true;
+      } else if (this.yzm1 == "") {
+        this.yzm2 = true;
+      } else if (this.username != "admin") {
+        this.username2 = true;
+        this.username1 = false;
+      } else if (this.password != "123456") {
+        this.password2 = true;
+        this.password1 = false;
+      }else if(this.yzm1 != "PAN5"){
+        this.yzm3=true;
+        this.yzm2 = false;
       } else {
-        this.usernameF1 = false;
-        this.usernameF = false;
-        this.usernameP1 = false;
-        this.usernameP = false;
-        this.usernameY = false;
-        this.usernameY1 = false;
-         this.$message({
-          message: '登录成功 ',
-          type: 'success'
+        this.$message({
+          message: "登录成功 ",
+          type: "success"
         });
         this.$router.push({
-            path:"/main"
-        })
+          path: "/main"
+        });
       }
-    },
-  },
+
+      // if (this.username != "admin") {
+      //   this.usernameF1 = true;
+      //    this.usernameF = false;
+      //   this.$nextTick(() => {
+      //     this.$refs.input.focus();
+      //   });
+      // } else if (this.pwd != "123456") {
+      //   this.usernameP1 = true;
+      //   this.$nextTick(() => {
+      //     this.$refs.inpu1t.focus();
+      //   });
+      // } else if (this.num1 != "PAN5") {
+      //   this.usernameF1 = true;
+      //   this.$nextTick(() => {
+      //     this.$refs.input2.focus();
+      //   });
+      // }
+    }
+  }
 };
 </script>
 <style scoped>
@@ -174,10 +154,7 @@ computed: {
 .el-button {
   margin: 15px 0 0 50px;
   width: 302px;
-  background: repeating-linear-gradient(
-    to right,
-    rgb(27, 30, 207)
-  ) !important;
+  background: repeating-linear-gradient(to right, rgb(27, 30, 207)) !important;
   border: 0;
 }
 .el-button:hover {
@@ -231,10 +208,10 @@ i {
   margin: 0 0 0 86px;
 }
 
-.el-col[data-v-10d9df09]{
+.el-col[data-v-10d9df09] {
   margin-top: 130px;
 }
-.xy{
+.xy {
   color: blue;
 }
 </style>

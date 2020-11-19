@@ -1,16 +1,16 @@
 <template>
   <div class="main">
     <div class="eheader">
-      <Eheader title="商品档案"></Eheader>
+      <Eheader title="员工账号"></Eheader>
     </div>
     <div class="main1">
       <div>
         <select name="" id="xlk2">
          <option value="" class="xlk3">全部状态</option>
-          <option value="" class="xlk3">上架</option>
-          <option value="" class="xlk3">下架</option>
+          <option value="" class="xlk3">启用</option>
+          <option value="" class="xlk3">禁用</option>
         </select>
-        <el-input placeholder="请输入商品名称/编码" v-model="input3" class="input-with-select">
+        <el-input placeholder="请输入工号编码" v-model="input3" class="input-with-select">
           <el-button
             slot="append"
             icon="el-icon-search"
@@ -32,84 +32,62 @@
                 :model="formLabelAlign"
                 class="item1"
               >
-                <el-form-item label="关键词">
+                <el-form-item label="工号编码">
                   <el-input
                     v-model="formLabelAlign.name"
                     class="item"
-                    placeholder="请输入商品名称/编码/助记码/关键字"
+                    placeholder="请输入工号编码"
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="商品类别">
+                <el-form-item label="操作门店">
                   <select name id="xlk">
-                    <option value>全部分类</option>
+                    <option value>未选择</option>
                   </select>
                 </el-form-item>
                 <ul class="lsj">
-                  <li>零售价区间</li>
+                  <li>登录次数</li>
                   <li>
-                    <el-input v-model="input" placeholder="￥" class="lsjsrk"></el-input>
+                    <el-input v-model="input"  class="lsjsrk"></el-input>
                   </li>
                   <li>—</li>
                   <li>
-                    <el-input v-model="input1" placeholder="￥" class="lsjsrk"></el-input>
+                    <el-input v-model="input1"  class="lsjsrk"></el-input>
                   </li>
                 </ul>
                 <p class="dxk">
-                  <span class="dxk1">商品标签</span>
-                  <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-                    <el-checkbox
-                      :indeterminate="isIndeterminate"
-                      v-model="checkAll"
-                      @change="handleCheckAllChange"
-                    >全选</el-checkbox>
-                    <el-checkbox
-                      class="dxk2"
-                      v-for="city in cities"
-                      :label="city"
-                      :key="city"
-                    >{{city}}</el-checkbox>
-                  </el-checkbox-group>
+                  员工状态
+                  <el-radio-group v-model="radio">
+                    <el-radio :label="3">启用</el-radio>
+                    <el-radio :label="6">禁用</el-radio>
+                  </el-radio-group>
                 </p>
               </el-form>
             </div>
             <div class="content2">
-              <ul class="content3">
-                <li>
-                  积分赠送
-                  <el-radio-group v-model="radio">
-                    <el-radio :label="3">积分赠送</el-radio>
-                    <el-radio :label="6">不赠送积分</el-radio>
-                  </el-radio-group>
-                </li>
-                <li>
-                  运费计算
-                  <el-radio-group v-model="radio1">
-                    <el-radio :label="3">买家承担</el-radio>
-                    <el-radio :label="6">卖家包邮</el-radio>
-                  </el-radio-group>
-                </li>
-                <li>
-                  商城设置
-                  <el-radio-group v-model="radio2">
-                    <el-radio :label="3">设置商城</el-radio>
-                    <el-radio :label="6">未设置商城</el-radio>
-                  </el-radio-group>
-                </li>
-                <li>
-                  促销状态
-                  <el-radio-group v-model="radio3">
-                    <el-radio :label="3">正常</el-radio>
-                    <el-radio :label="6">促销中</el-radio>
-                  </el-radio-group>
-                </li>
-                <li>
-                  商品状态
-                  <el-radio-group v-model="radio4">
-                    <el-radio :label="3">上架</el-radio>
-                    <el-radio :label="6">下架</el-radio>
-                  </el-radio-group>
-                </li>
-              </ul>
+               <el-form
+                :label-position="labelPosition"
+                label-width="80px"
+                :model="formLabelAlign"
+                class="item1"
+              >
+                   <el-form-item label="所属部门">
+                  <select name id="xlk">
+                    <option value>未选择</option>
+                  </select>
+                </el-form-item>
+                
+                   <el-form-item label="账号角色">
+                  <select name id="xlk">
+                    <option value>未选择</option>
+                  </select>
+                </el-form-item>
+                
+                   <el-form-item label="创建时间">
+                  <select name id="xlk">
+                    <option value>未选择</option>
+                  </select>
+                </el-form-item>
+               </el-form>
             </div>
           </div>
           <div class="bottom">
@@ -135,15 +113,13 @@
         header-cell-style="background: rgba(242, 242, 242, 1);" border
       >
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="date" label="编码" width="120"></el-table-column>
-        <el-table-column prop="name" label="名称" width="120"></el-table-column>
-        <el-table-column prop="data1" label="单位" width="110" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="data2" label="类别" width="80"></el-table-column>
-        <el-table-column prop="data3" label="零售价" width="70"></el-table-column>
-        <el-table-column prop="data4" label="最低销售价" width="83"></el-table-column>
-        <el-table-column prop="data5" label="市场指导价" width="70"></el-table-column>
-        <el-table-column prop="data6" label="成本参考价" width="70"></el-table-column>
-        <el-table-column prop="data7" label="状态" width="70"></el-table-column>
+        <el-table-column prop="date" label="工号编码" width="90"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="150"></el-table-column>
+        <el-table-column prop="data1" label="手机号码" width="110" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="data2" label="状态" width="80"></el-table-column>
+        <el-table-column prop="data3" label="操作门店" width="150"></el-table-column>
+        <el-table-column prop="data4" label="登录次数" width="93"></el-table-column>
+        <el-table-column prop="data5" label="最后登录时间" width="160"></el-table-column>
         <el-table-column prop="name" label="..." width="100">
           <!-- <el-button  type="text" size="small"><router-link to="/archivesUp" tag="div">修改</router-link></el-button>
           <el-button type="text" size="small" @click="open1">删除</el-button>-->
@@ -205,81 +181,67 @@ export default {
       },
       tableData: [
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+          date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+          date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
          {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+           date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+           date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+           date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+           date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         },
         {
-          date: "62100000001",
-          name: "王小虎",
-          data1: "包",
-          data2: "生活用品",
-          data3: "8.00",
-          data4: "5.00",
-          data5: "18.00",
-          data6: "3.00",
-          data7: "上架"
+           date: "00001",
+          name: "产品大神（幸福店）",
+          data1: "1888888",
+          data2: "启用",
+          data3: "产品大神（幸福店）",
+          data4: "10",
+          data5: "2018-04-28 12:10:08",
         }
       ],
       multipleSelection: []
@@ -375,7 +337,7 @@ export default {
 }
 .btn {
   float: right;
-  margin: 10px 70px;
+  margin: 10px 0px;
 }
 .block {
   position: absolute;
@@ -398,7 +360,7 @@ export default {
 }
 .gjsstk {
   width: 1070px;
-  height: 400px;
+  height: 380px;
   position: absolute;
   z-index: 5;
   margin: -70px -50px;
@@ -446,7 +408,7 @@ export default {
   height: 20px;
 }
 .lsj {
-  margin: 0px -20px;
+  margin: 0px 0px;
 }
 .lsj li {
   list-style: none;
@@ -455,7 +417,7 @@ export default {
 }
 .dxk {
   float: left;
-  margin: 20px 50px;
+  margin: 20px 15px;
 }
 .dxk1 {
   margin: 0px -45px;
@@ -468,7 +430,7 @@ list-style-type:none;
 padding-top: 26px;
 }
 .btn2{
-  margin: 20px 50px;
+  margin: 0px 50px;
 }
 #xlk2{
   border: none;

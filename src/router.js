@@ -12,6 +12,65 @@ export default new Router({
      path: '/login',
      component:()=>import('./components/login.vue'),
       },
+      {
+        path: '/main1',
+        component:()=>import('./views/Main1.vue'),
+        children:[
+          {
+            path: '/grxx',
+            component:()=>import('./views/Grxx.vue'),
+          },
+          {
+            path: '/main1',
+            component:()=>import('./views/Home.vue'),
+          },
+          {
+            path: '/passwordUp',
+            component:()=>import('./views/PasswordUp.vue'),
+          },
+          {
+            path: '/bmsz',
+            component:()=>import('./views/Bmsz.vue'),
+          },
+          {
+            path: '/ygzh',
+            component:()=>import('./views/Ygzh.vue'),
+          },
+          {
+            path: '/jsgl',
+            component:()=>import('./views/Jsgl.vue'),
+          },
+          {
+            path: '/shzl',
+            component:()=>import('./views/Yhzl.vue'),
+          },
+          {
+            path: '/dlrz',
+            component:()=>import('./views/Dlrz.vue'),
+          },
+          {
+            path: '/czrz',
+            component:()=>import('./views/Czrz.vue'),
+          },
+          {
+            path: '/ywxx',
+            component:()=>import('./views/Ywxx.vue'),
+          },
+          {
+            path: '/xtgg',
+            component:()=>import('./views/Xtgg.vue'),
+          },
+          {
+            path: '/sjgg',
+            component:()=>import('./views/Sjgg.vue'),
+          },
+          {
+            path: '/gmfw',
+            component:()=>import('./views/Gmfw.vue'),
+          },
+        ]
+    },
+     
     {
       path:'/main',
       component:()=>import('./views/Main.vue'),
@@ -259,9 +318,8 @@ export default new Router({
         {
           path: '/hyLb1See',
           component:()=>import('./views/HyLb1See.vue'),
-        },
-        
+        }, 
       ]
-    }
+    },
   ]
 })
